@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Found your city</h2>
-            <h3 class="section-subheading text-muted">Write the name here.</h3>
+            <h3 class="section-subheading text-muted">Writee the name here.</h3>
           </div>
           <div class="col-lg-12 text-center">
             <form class="form-inline">
