@@ -1,19 +1,30 @@
 <template>
+<section class="page-section bg-light" id="compare">
   <div class="compare">
     <div class="container">
       <div class="text-center">
         <h3 class="section-heading text-uppercase">Compare cost of living between cities:</h3>
 
         <div class="form-group">
-          <input class="first-city" type="text" value required="required" placeholder="first-city" />
+      <form class="form-center">
+        <b-form-select v-model="firstCitySelected" class="mb-3">
+          <b-form-select-option
+            v-for="item in dataCity"
+            :key="item.id"
+            :value="item.cityName"
+          >{{item.cityName}}</b-form-select-option>
+        </b-form-select>
+      </form>
           <h2>VS</h2>
-          <input
-            class="second-city"
-            type="text"
-            value
-            required="required"
-            placeholder="second-city"
-          />
+      <form class="form-center">
+        <b-form-select v-model="secondCitySelected" class="mb-3">
+          <b-form-select-option
+            v-for="item in dataCity"
+            :key="item.id"
+            :value="item.cityName"
+          >{{item.cityName}}</b-form-select-option>
+        </b-form-select>
+      </form>
         </div>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Compare</button>
 
@@ -55,5 +66,59 @@
       </div>
     </div>
   </div>
+  </section>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      firstCitySelected: "",
+      secondCitySelected: "",
+      firsDataCity: {},
+      secondDataCity: {},
+      dataCity: [],
+
+    };
+  },
+  mounted() {
+    this.getCitiesName()
+    this.getFirstCity()
+  },
+  methods: {
+    async getCitiesName() {
+      let newCityCard = {};
+
+      try {
+        let response = await this.$axios.get("http://localhost:8082/cities/");
+        console.log(response.data)
+        this.dataCity = response.data;
+        console.log(dataCity)
+      } catch (err) {
+        console.log("no se conecta");
+      }
+    },
+    async getFirstCity() {
+      try {
+        let response = await this.$axios.get(`http://localhost:8082/cities/${firstCitySelected}`);
+        console.log(response)
+
+        this.firsDataCity = response.data;
+        console.log(firsDataCity)
+      } catch (err) {
+        console.log("no se conecta");
+      }
+    }
+  },
+  computed: {
+    cityFiltered() {
+      if (this.citySelected === "all") {
+        return this.cityCards;
+      }
+      return this.cityCards.filter(item => item.cityName === this.citySelected);
+    }
+  },
+};
+</script>
+}
+</script>

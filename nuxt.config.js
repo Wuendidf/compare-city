@@ -29,7 +29,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vue-js-modal.js'
+    '@/plugins/vue-js-modal.js',
+    '@/plugins/embed-youtube.js'
   ],
   /*
   ** Nuxt.js dev-modules
