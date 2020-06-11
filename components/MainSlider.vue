@@ -4,9 +4,10 @@
       <div class="container">
         <div class="masthead-subheading">Bienvenido</div>
         <div class="masthead-heading text-uppercase">Compare city</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#search">Comencemos</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/cities">Comencemos</a>
       </div>
     </header>
+      <img src="/assets/img/header-bg.jpg" alt=""/>
   </div>
 </template>
 

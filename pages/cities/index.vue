@@ -57,8 +57,9 @@ export default {
       try {
         let response = await this.$axios.get("http://localhost:8082/cities/");
         this.cityCards = response.data;
+        console.log(cityCards)
       } catch (err) {
-        console.log("no se conecta");
+        console.log("no se conecta a la base de datos");
       }
     },
     async getDataCity(item) {

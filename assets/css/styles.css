@@ -547,6 +547,14 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+
+.bi::before {
+  display: inline-block;
+  content: "";
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+}
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -9798,7 +9806,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #fed136 !important;
+  color: #3C869B !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -9806,7 +9814,7 @@ a.text-primary:hover, a.text-primary:focus {
 }
 
 .text-secondary {
-  color: #6c757d !important;
+  color: #ED5917 !important;
 }
 
 a.text-secondary:hover, a.text-secondary:focus {
@@ -10141,7 +10149,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #3C869B;
-  background-image: url("https://s2.best-wallpaper.net/wallpaper/1920x1200/1402/Madrid-Spain-city-night-buildings-road-lights_1920x1200.jpg");
+  /* background-image: url("https://s2.best-wallpaper.net/wallpaper/1920x1200/1402/Madrid-Spain-city-night-buildings-road-lights_1920x1200.jpg"); */
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

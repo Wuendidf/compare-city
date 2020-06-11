@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainSlider image="/assets/imgheader-bg.jpg/" size="small"/>
+    <MainSlider class="img-fluid" image="/assets/img/header-bg.jpg" size="small"/>
 
   <nuxt />
 
@@ -10,7 +10,7 @@
 <script>
 import search from "@/pages/cities";
 import MainSlider from "@/components/MainSlider";
-import compare from "@/pages/compare"
+import compare from "@/pages/compare/index"
 
 
 
