@@ -1,18 +1,17 @@
 <template>
   <div class="MainSlider" :class="size">
-    <header class="masthead" :style='"background-image: url("+ image +");"'>
+    <header class="masthead">
       <div class="container">
-        <div class="masthead-subheading">Bienvenido</div>
-        <div class="masthead-heading text-uppercase">Compare city</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/cities">Comencemos</a>
+        <div class="masthead-subheading">let's explore together</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/cities">Get started!</a>
       </div>
+
     </header>
-      <img src="/assets/img/header-bg.jpg" alt=""/>
   </div>
 </template>
 
 <script>
 export default {
-	props: ["image", "size" ]
-}
+  props: ["image", "size"]
+};
 </script>

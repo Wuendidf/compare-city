@@ -1,10 +1,9 @@
 <template>
-  <section class="page-section bg-light" id="search">
+  <section class="page-section" id="search">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Found your city</h2>
-          <h3 class="section-subheading text-muted">select your perfect place.</h3>
+          <h3 class="section-subheading">select the city here...</h3>
         </div>
       </div>
 
