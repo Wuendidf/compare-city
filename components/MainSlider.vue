@@ -1,11 +1,8 @@
 <template>
-  <div class="MainSlider" :class="size">
+  <div class="mainSlider" :class="size">
     <header class="masthead">
-      <div class="container">
         <div class="masthead-subheading">let's explore together</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/cities">Get started!</a>
-      </div>
-
+        <nuxt-link class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" to="/cities">Get started!</nuxt-link>
     </header>
   </div>
 </template>

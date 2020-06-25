@@ -1,25 +1,38 @@
 <template>
-  <div>
-    <MainSlider class="img-fluid" image="/assets/img/header-bg.jpg" size="small"/>
+  <div class="page-index">
+    <MainSlider />
 
-  <nuxt />
-
+    <nuxt />
   </div>
 </template>
 
 <script>
-import search from "@/pages/cities";
 import MainSlider from "@/components/MainSlider";
-import compare from "@/pages/compare/index"
-
-
 
 export default {
+  data() {
+    return {
+      cityCards: []
+    };
+  },
   components: {
-    MainSlider,
-    search,
-    compare,
+    MainSlider
+  },
+  mounted() {
+    this.getAllCities();
+  },
+  methods: {
+    async getAllCities() {
+      let newCityCard = {};
 
+      try {
+        let response = await this.$axios.get("http://localhost:8082/cities/");
+        this.cityCards = response.data;
+        console.log(this.cityCards);
+      } catch (err) {
+        console.log("no se conecta a la base de datos");
+      }
+    }
   }
 };
 </script>

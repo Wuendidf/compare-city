@@ -1,5 +1,5 @@
 <template>
-  <section class="page-section" id="search">
+  <section class="page-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -25,8 +25,9 @@
           :cityName="item.cityName"
           :image="item.image"
           :country="item.country"
-          @click="getDataCity(item)"
+          :votes="votesFiltered(item)"
           :slug="item.slug"
+          @click="getDataCity(item)"
         ></cityCard>
       </div>
     </div>
@@ -36,14 +37,11 @@
 <script>
 import cityCard from "@/partials/CityCard";
 
-
 export default {
-
   data() {
     return {
       citySelected: "all",
-      cityCards: [],
-
+      cityCards: []
     };
   },
   mounted() {
@@ -56,14 +54,18 @@ export default {
       try {
         let response = await this.$axios.get("http://localhost:8082/cities/");
         this.cityCards = response.data;
-        console.log(cityCards)
+        // console.log(this.cityCards)
       } catch (err) {
         console.log("no se conecta a la base de datos");
       }
     },
     async getDataCity(item) {
-      this.$router.push(`/cities/${item.slug}`)
-
+      this.$router.push(`/cities/${item.slug}`);
+    },
+    votesFiltered(city) {
+      let votes = city.votes.map(item => item === 1);
+      votes = votes.reduce((sum,current)=> sum + current)
+      return votes
 
     }
   },
@@ -73,9 +75,9 @@ export default {
         return this.cityCards;
       }
       return this.cityCards.filter(item => item.cityName === this.citySelected);
-    }
-  },
+    },
 
+  },
   components: {
     cityCard
   }

@@ -4,7 +4,7 @@
       <img class="img-fluid d-block mx-auto" src="#" alt />
       <div class="row justify-content-center">
         <div class="col-lg-12">
-          <h2 class="text" style="color:white">{{ cityData.cityName }}</h2>
+          <h2 class="card-title">{{ cityData.cityName }}</h2>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -318,7 +318,12 @@
               </b-card-header>
               <b-collapse id="accordion-3" visible accordion="my-accordion" role="tabpanel">
                 <b-card-body>
-                  <Maps v-if="cityData.coordenadas" :center="cityData.coordenadas" :map-type-id="mapTypeId" :zoom="5">aquii el componente</Maps>
+                  <Maps
+                    v-if="cityData.coordenadas"
+                    :center="cityData.coordenadas"
+                    :map-type-id="mapTypeId"
+                    :zoom="5"
+                  >aquii el componente</Maps>
                 </b-card-body>
               </b-collapse>
             </b-card>
@@ -357,7 +362,7 @@
             </b-collapse>
           </b-card>
         </div>
-        <div class="col-lg-1"></div>
+
         <div class="row justify-content-center">
           <div class="col-lg 5">
             <div role="tablist"></div>
@@ -378,6 +383,31 @@
           </ShareNetwork>
         </div>
       </div>
+      <div class="question" v-if="!hasVoted">
+        <h3 class="text-secondary">If you have lived in this city, would you recommend it to live?</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg 2">
+              <button
+                class="btn btn-primary btn-lg text-uppercase js-scroll-trigger"
+                id="negative"
+                @click.prevent="vote(voteNegative)"
+              >
+                <i class="far fa-thumbs-down"></i>
+              </button>
+            </div>
+            <div class="col-lg 2">
+              <button
+                class="btn btn-primary btn-lg text-uppercase js-scroll-trigger"
+                id="positive"
+                @click.prevent="vote(votePositive)"
+              >
+                <i class="far fa-thumbs-up"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -386,6 +416,7 @@
 import cityCard from "@/partials/CityCard";
 import weather from "@/partials/weather";
 import Maps from "@/components/Maps";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
 export default {
   data() {
@@ -397,16 +428,16 @@ export default {
       temp: "",
       center: {},
       mapTypeId: "terrain",
-      markers: [
-        { position: { lat: -0.48585, lng: 117.1466 } },
-
-      ]
+      markers: [{ position: { lat: -0.48585, lng: 117.1466 } }],
+      votePositive: { votes: 1 },
+      voteNegative: { votes: 0 },
+      class: "",
+      hasVoted: false
     };
   },
   mounted() {
     this.setDataCity();
     this.getWeather();
-
   },
   methods: {
     async setDataCity() {
@@ -414,9 +445,7 @@ export default {
         let response = await this.$axios.get(
           `http://localhost:8082/cities/${this.currentSlug}`
         );
-        console.log(response.data);
         this.cityData = response.data;
-
       } catch (err) {
         console.log(err.response.data.error, "no se conecta");
       }
@@ -429,13 +458,41 @@ export default {
       let URI = `https://api.openweathermap.org/data/2.5/weather?q=${this.cityData.cityName},es&appid=${token}&lang=${lang}&units=${unit}`;
       let response = await this.$axios.get(URI);
 
-
       this.humidity = response.data.main.humidity;
       this.temp = Math.trunc(response.data.main.temp);
+    },
+    async vote(data) {
+      this.hasVoted = true
+      try {
+        let response = await this.$axios.put(
+          `http://localhost:8082/votes/${this.currentSlug}`,
+          data
+        );
 
+        console.log("has voted");
+        Swal.fire({
+          title: "Thanks for your vote, we will use it to improve our comparisons!",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown"
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp"
+          }
+        });
+      } catch (err) {
+        console.log(
+          err.response.data.error,
+          "no se conecta "
+        );
+      }
     }
-  },components: {
+  },
+  computed: {},
+  components: {
     Maps: Maps
   }
 };
 </script>
+
+<style>
+</style>

@@ -60,6 +60,7 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     ['nuxt-leaflet', { /* module options */ }],
+    'nuxt-sweetalert2'
 
 
 

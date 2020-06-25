@@ -1,5 +1,5 @@
 <template>
-  <section class="page-section">
+  <section class="page-section-big">
     <div class="compare">
       <div class="container">
         <div class="text-center">

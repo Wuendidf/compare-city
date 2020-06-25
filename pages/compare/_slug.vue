@@ -4,8 +4,8 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">costOfLiving</th>
-            <th scope="col" v-for="item in dataCityCosts" :key="item.id">{{item.cityName}}</th>
+            <th scope="col">Cost Of Living</th>
+            <th scope="col" style="color:#ED5917" v-for="item in dataCityCosts" :key="item.id">{{item.cityName}}</th>
             <th scope="col">Percent%</th>
           </tr>
         </thead>
@@ -15,8 +15,19 @@
             <td>{{dataCityCosts[0].costOfLiving[key] | toMoney}}</td>
             <td>{{dataCityCosts[1].costOfLiving[key] | toMoney}}</td>
             <td
-             :class="changeClass"
-            >{{getPercent(dataCityCosts[0].costOfLiving[key],dataCityCosts[1].costOfLiving[key])}}</td>
+            :class="className(getPercent(dataCityCosts,key))"
+            >{{getPercent(dataCityCosts,key)}}</td>
+          </tr>
+          <tr>
+          <b-col md="3" class="py-3">
+            <b-button
+              v-b-popover.hover="'The Consumer Price Index (CPI): is the annual variation of consumer prices with respect to the period 2020M04. INE'"
+              title="Information"
+              variant="success"
+            >
+              <i class="fas fa-info"></i>
+            </b-button>
+          </b-col>
 
           </tr>
         </tbody>
@@ -37,14 +48,13 @@
         </div>
       </div>
     </div>
+
+
   </section>
 </template>
 
 <script>
 export default {
-  props: {
-    isType: Boolean
-  },
   data() {
     return {
       currentParams: this.$route.params.slug,
@@ -71,7 +81,6 @@ export default {
         transportation: "Monthly transport ticket",
         unemploymentRate: "Unemployment rate"
       },
-      className: ""
     };
   },
   mounted() {
@@ -86,42 +95,35 @@ export default {
 
         this.dataCityCosts = response.data;
         this.costOfLivingKeys = Object.keys(this.dataCityCosts[0].costOfLiving);
-        console.log(this.costOfLivingKeys);
       } catch (err) {
         console.log(err.message);
       }
     },
-    getPercent(price1, price2) {
+    getPercent(dataCityCosts, key) {
+
+      let price1 = dataCityCosts[0].costOfLiving[key]
+      let price2 = dataCityCosts[1].costOfLiving[key]
+
       let priceListMax = Math.max(price1, price2);
       let priceListMin = Math.min(price1, price2);
-      let percent = Math.abs((priceListMax * 100) / priceListMin - 100).toFixed(1);
+      let percent = Math.abs((priceListMax * 100) / priceListMin - 100).toFixed(
+        1
+      );
       if (price1 > price2) {
         percent = percent * -1;
       }
-      let percentType = Math.sign(this.percent)
-      if (percentType === -1){
-        return  this.className = "negative"
-        console.log(this.className)
-      }
-      else if (percentType === 1){
-        return this.className = "positive"
-      }
-      return percent
+      return percent;
     },
-
+    className(percent) {
+      let percentType = Math.sign(percent);
+        if (percentType === -1) {
+          return "negative";
+        }
+        return "positive";
+    }
   },
   computed: {
-    changeClass(percent) {
-      let percentType = Math.sign(this.percent)
-      if (percentType === -1){
-        return  this.className = "negative"
-        console.log(this.className)
-      }
-      else if (percentType === 1){
-        return this.className = "positive"
-      }
 
-  }
   }
 };
 </script>
@@ -133,4 +135,5 @@ export default {
 .positive {
   color: green;
 }
+
 </style>
