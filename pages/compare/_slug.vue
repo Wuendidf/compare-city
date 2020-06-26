@@ -11,7 +11,7 @@
         </thead>
         <tbody>
           <tr v-for="key in costOfLivingKeys" :key="key.id">
-            <th scope="row"><i class="em em-world_map" aria-role="presentation" aria-label></i>{{costOfLivingLabels[key]}}</th>
+            <th scope="row"><i class="em em-moneybag" aria-role="presentation" aria-label="MONEY BAG"></i>{{costOfLivingLabels[key]}}</th>
             <td >{{dataCityCosts[0].costOfLiving[key] | toMoney}}</td>
             <td>{{dataCityCosts[1].costOfLiving[key] | toMoney}}</td>
             <td
