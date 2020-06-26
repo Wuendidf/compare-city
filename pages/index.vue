@@ -8,7 +8,6 @@
 
 <script>
 import MainSlider from "@/components/MainSlider";
-
 export default {
   data() {
     return {
@@ -24,7 +23,6 @@ export default {
   methods: {
     async getAllCities() {
       let newCityCard = {};
-
       try {
         let response = await this.$axios.get("http://localhost:8082/cities/");
         this.cityCards = response.data;
@@ -36,7 +34,5 @@ export default {
   }
 };
 </script>
-
-
 
 

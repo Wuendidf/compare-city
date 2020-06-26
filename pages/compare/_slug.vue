@@ -11,12 +11,12 @@
         </thead>
         <tbody>
           <tr v-for="key in costOfLivingKeys" :key="key.id">
-            <th scope="row">{{costOfLivingLabels[key]}}</th>
-            <td>{{dataCityCosts[0].costOfLiving[key] | toMoney}}</td>
+            <th scope="row"><i class="em em-world_map" aria-role="presentation" aria-label></i>{{costOfLivingLabels[key]}}</th>
+            <td >{{dataCityCosts[0].costOfLiving[key] | toMoney}}</td>
             <td>{{dataCityCosts[1].costOfLiving[key] | toMoney}}</td>
             <td
             :class="className(getPercent(dataCityCosts,key))"
-            >{{getPercent(dataCityCosts,key)}}</td>
+            >{{getPercent(dataCityCosts,key)}}%</td>
           </tr>
           <tr>
           <b-col md="3" class="py-3">
@@ -131,9 +131,12 @@ export default {
 <style scoped>
 .negative {
   color: red;
+  font-style: oblique;
+  font-weight: bold
 }
 .positive {
   color: green;
+  font-weight: bold
 }
 
 </style>

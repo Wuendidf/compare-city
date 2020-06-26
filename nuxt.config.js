@@ -12,7 +12,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {rel: 'icon', type: 'image/x-icon', href: '/assets/logofavi.ico' },
       {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'},
       {rel: 'stylesheet', href:'https://emoji-css.afeld.me/emoji.css'},
       {rel: 'stylesheet', href:'https://use.fontawesome.com/releases/v5.13.0/css/all.css', integrity:'ha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V', crossorigin:'anonymous'}
@@ -31,7 +31,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/styles.css'
+    '@/static/css/styles.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -41,8 +41,6 @@ export default {
     '@/plugins/filters.js',
     '@/plugins/share.js',
     '@/plugins/vue2-googlemaps.js',
-
-
   ],
   /*
   ** Nuxt.js dev-modules
@@ -59,11 +57,7 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    ['nuxt-leaflet', { /* module options */ }],
     'nuxt-sweetalert2'
-
-
-
   ],
   /*
   ** Axios module configuration

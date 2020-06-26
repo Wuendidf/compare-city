@@ -1,5 +1,5 @@
 <template>
-  <section class="page-section-big">
+<section class="page-section-big">
     <div class="compare">
       <div class="container">
         <div class="text-center">
@@ -61,11 +61,12 @@
             type="submit"
             @click="goComparison"
           >Compare</button>
-          </div></div>
-
           </div>
+          </div>
+        </div>
       </div>
     </div>
+
   </section>
 </template>
 
@@ -94,15 +95,10 @@ export default {
       }
     },
     async goComparison(item) {
-      /* if (this.firstCitySelected !== "" && this.secondCitySelected !== "") */{
-        this.$router.push(
-        `/compare/${this.firstCitySelected}&${this.secondCitySelected}`
-      )
-    } /* if (this.firstCitySelected === "" && this.secondCitySelected === ""){
-      this.$router.push('/error404')
-      } */
+      {
+        this.$router.push(`/compare/${this.firstCitySelected}&${this.secondCitySelected}`)
     }
-
+    }
   }
 };
 </script>

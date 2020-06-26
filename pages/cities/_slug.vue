@@ -432,7 +432,16 @@ export default {
       votePositive: { votes: 1 },
       voteNegative: { votes: 0 },
       class: "",
-      hasVoted: false
+      hasVoted: false,
+      cityDataKeys: [],
+      generalsInfoLabels: {
+        region: "Region",
+        country: "Country",
+        currency: "Currency",
+        population: "Population",
+        weather: "Weather",
+        humidity: "Humidity"
+      }
     };
   },
   mounted() {
@@ -461,8 +470,9 @@ export default {
       this.humidity = response.data.main.humidity;
       this.temp = Math.trunc(response.data.main.temp);
     },
+    getDataGeneral() {},
     async vote(data) {
-      this.hasVoted = true
+      this.hasVoted = true;
       try {
         let response = await this.$axios.put(
           `http://localhost:8082/votes/${this.currentSlug}`,
@@ -471,7 +481,8 @@ export default {
 
         console.log("has voted");
         Swal.fire({
-          title: "Thanks for your vote, we will use it to improve our comparisons!",
+          title:
+            "Thanks for your vote, we will use it to improve our comparisons!",
           showClass: {
             popup: "animate__animated animate__fadeInDown"
           },
@@ -480,10 +491,7 @@ export default {
           }
         });
       } catch (err) {
-        console.log(
-          err.response.data.error,
-          "no se conecta "
-        );
+        console.log(err.response.data.error, "no se conecta ");
       }
     }
   },
