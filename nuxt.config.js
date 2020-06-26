@@ -31,7 +31,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/styles.css'
+    '@/static/css/styles.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -59,7 +59,6 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    ['nuxt-leaflet', { /* module options */ }],
     'nuxt-sweetalert2'
 
 

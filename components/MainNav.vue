@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
       <div class="container">
         <nuxt-link class="navbar-brand js-scroll-trigger" to="/">
-          <img class="" src="../assets/img/logos/logosmall.png">
+          <img class="" src="../static/img/logos/logosmall.png">
         </nuxt-link>
         <div class="#navbar" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
