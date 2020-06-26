@@ -60,9 +60,6 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     'nuxt-sweetalert2'
-
-
-
   ],
   /*
   ** Axios module configuration

@@ -4,7 +4,7 @@
       <img class="img-fluid d-block mx-auto" src="#" alt />
       <div class="row justify-content-center">
         <div class="col-lg-12">
-          <h2 class="card-title">{{ cityData.cityName }}Un cambio</h2>
+          <h2 class="card-title">{{ cityData.cityName }}</h2>
         </div>
       </div>
       <div class="row justify-content-center">
