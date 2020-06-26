@@ -1,6 +1,10 @@
 {
   "hosting": {
+<<<<<<< HEAD
     "public": "./dist",
+=======
+    "public": "dist",
+>>>>>>> develop
     "ignore": [
       "firebase.json",
       "**/.*",

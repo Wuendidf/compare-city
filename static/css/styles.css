@@ -482,6 +482,7 @@ small,
   width: 100%;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
+  padding-top: 100px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -607,6 +608,7 @@ small,
   width: 100%;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
+  margin-top: 10px;
 }
 
 .col {
@@ -1761,6 +1763,7 @@ small,
 
 @media (max-width: 575.98px) {
   .table-responsive-sm {
+    padding-top: 170px;
     display: block;
     width: 100%;
     overflow-x: auto;
@@ -4531,7 +4534,6 @@ input[type="button"].btn-block {
 .card-img-bottom {
   flex-shrink: 0;
   width: 100%;
-  opacity: 80%;
   box-shadow: 0 1px 5px 1px #3c869b;
 }
 
@@ -10207,12 +10209,15 @@ p {
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  padding-top: 100px;
 }
 .page-section {
   height: 100%;
+  padding-top: 100px;
 }
 .page-section-big{
   height: 100vh;
+  padding-top: 100px;
 }
 .page-section-big h3.section-subheading {
   margin-top: 5rem;
@@ -10436,7 +10441,6 @@ header.masthead .masthead-heading {
   background: rgba(254, 209, 54, 0.9);
   align-items: center;
   justify-content: center;
-  opacity: 0;
   transition: opacity ease-in-out 0.25s;
 }
 #portfolio
@@ -10448,7 +10452,7 @@ header.masthead .masthead-heading {
   color: white;
 }
 #portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {
-  opacity: 1;
+  opacity: 0.5;
 }
 #portfolio .portfolio-item .portfolio-caption {
   padding: 1.5rem;
