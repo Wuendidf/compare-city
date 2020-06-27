@@ -452,7 +452,7 @@ export default {
     async setDataCity() {
       try {
         let response = await this.$axios.get(
-          `http://localhost:8082/cities/${this.currentSlug}`
+          `https://comparecity.herokuapp.com/${this.currentSlug}`
         );
         this.cityData = response.data;
       } catch (err) {
@@ -475,7 +475,7 @@ export default {
       this.hasVoted = true;
       try {
         let response = await this.$axios.put(
-          `http://localhost:8082/votes/${this.currentSlug}`,
+          `https://comparecity.herokuapp.com/votes/${this.currentSlug}`,
           data
         );
 

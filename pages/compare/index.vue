@@ -87,7 +87,7 @@ export default {
       let newCityCard = {};
 
       try {
-        let response = await this.$axios.get("http://localhost:8082/cities/");
+        let response = await this.$axios.get("https://comparecity.herokuapp.com/cities/");
         this.dataCities = response.data;
         console.log(dataCities);
       } catch (err) {

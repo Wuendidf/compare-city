@@ -90,7 +90,7 @@ export default {
     async getDataCityCosts() {
       try {
         let response = await this.$axios.get(
-          `http://localhost:8082/compare/${this.currentParams}`
+          `https://comparecity.herokuapp.com/compare/${this.currentParams}`
         );
 
         this.dataCityCosts = response.data;
