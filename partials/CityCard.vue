@@ -5,7 +5,7 @@
         <img class="card-img-top" :src="image" />
       </a>
       <h4 class="text-secondary">{{cityName}}</h4>
-      <div class="portfolio-caption-subheading text-muted">{{country}}</div>
+      <div class="portfolio-caption-subheading text-muted">{{country}}.</div>
       <div class="portfolio-caption-subheading text-muted"><i class="far fa-thumbs-up" style="color:orange"></i>{{votes}}</div>
     </div>
   </div>

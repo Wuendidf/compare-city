@@ -323,7 +323,7 @@
                     :center="cityData.coordenadas"
                     :map-type-id="mapTypeId"
                     :zoom="5"
-                  >aquii el componente</Maps>
+                  ></Maps>
                 </b-card-body>
               </b-collapse>
             </b-card>
@@ -452,7 +452,7 @@ export default {
     async setDataCity() {
       try {
         let response = await this.$axios.get(
-          `https://comparecity.herokuapp.com/${this.currentSlug}`
+          `https://comparecity.herokuapp.com/cities/${this.currentSlug}`
         );
         this.cityData = response.data;
       } catch (err) {
