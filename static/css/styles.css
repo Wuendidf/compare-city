@@ -1768,6 +1768,10 @@ small,
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    background-color: whitesmoke;
+    padding-top: 200px;
+    font-size: medium;
+
   }
   .table-responsive-sm > .table-bordered {
     border: 0;
@@ -1811,6 +1815,11 @@ small,
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-bottom: 2px solid #dee2e6;
+  background-color: whitesmoke;
+  box-shadow: 5px solid black;
 }
 .table-responsive > .table-bordered {
   border: 0;
@@ -10196,7 +10205,7 @@ p {
   line-height: 1.75;
 }
 .app {
-  background: url("../img/mainBackground.png");
+  background: url("https://i.ibb.co/TH28Gnk/main-Background.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -10204,7 +10213,7 @@ p {
 }
 .page-index {
   height: 100vh;
-  background: url("../img/background1.png");
+  background: url("/img/background2.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

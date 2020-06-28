@@ -322,7 +322,7 @@
                     v-if="cityData.coordenadas"
                     :center="cityData.coordenadas"
                     :map-type-id="mapTypeId"
-                    :zoom="5"
+                    :zoom="8"
                   ></Maps>
                 </b-card-body>
               </b-collapse>
@@ -450,6 +450,7 @@ export default {
   },
   methods: {
     async setDataCity() {
+      console.log(this.currentSlug)
       try {
         let response = await this.$axios.get(
           `https://comparecity.herokuapp.com/cities/${this.currentSlug}`

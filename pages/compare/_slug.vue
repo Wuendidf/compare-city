@@ -1,7 +1,7 @@
 <template>
   <section class="compareCity">
     <div class="container">
-      <table class="table">
+      <table class="table table-responsive-sm">
         <thead>
           <tr>
             <th scope="col">Cost Of Living</th>
