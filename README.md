@@ -1,6 +1,6 @@
-# compare-city-frontent
+# Compare city app
 
-> Proyecto final
+> Project DAW
 
 ## Build Setup
 
